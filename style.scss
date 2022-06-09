@@ -1,0 +1,44 @@
+$color-primary: red; 
+$color-secondary: blue;
+$color-tertiary: green; 
+$primary-border: 1px solid $color-primary;
+$secondary-border: 1px solid $color-tertiary;
+$tertiary-border: 1px solid $color-secondary;
+$font: 1rem;
+
+@mixin article-card($color:$color-primary, $color-border:$color-primary, $font:$font) {
+    color: $color;
+    border: 1px solid $color-border;
+    font-size: $font;
+}
+
+.container {
+    border: $primary-border;
+    width: 80vw;
+    h1 {
+        color: $color-tertiary;
+        text-align: center;
+        text-decoration: underline;
+        text-decoration-color: $color-secondary;
+    }
+    .section {
+        display: flex;
+        margin: 15px;
+        .blu, .rosso {
+            border: $secondary-border;
+            padding: 15px;
+            }
+        .blu {
+            @include article-card($color:$color-secondary,$color-border:$color-tertiary);
+            }
+        .rosso {
+            @include article-card($color:$color-primary,$color-border:$color-tertiary);
+            }
+    }
+    .bottom {
+            @include article-card($color:$color-tertiary, $color-border:$color-secondary, $font:24px);
+            text-align: center;
+            margin: 15px;
+        }
+}
+
